@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lab 1</string>
+    <string name="hello_message">America!!</string>
+    <string name="ButtonText">I would be a button, but I am freedom!</string>
+    <string name="Text1">Login</string>
+    <string name="Next_Activity">Next Activity</string>
+    <string name="button1">Button 1</string>
+    <string name="button2">Button 2</string>
+    <string name="switch1">Enable Something</string>
+    <string name="Lab2Title">Lab2</string>
+    <string name="dialog_message">Do you wish to finish this activity?</string>
+    <string name="dialog_title">Lab2 Checkbox title</string>
+    <string name="ok">ok button</string>
+    <string name="cancel">Cancel Button</string>
+    <string name="Hint1">UserName</string>
+    <string name="Password">Password</string>
+    <string name="StartChat">Start Chat</string>
+</resources>
