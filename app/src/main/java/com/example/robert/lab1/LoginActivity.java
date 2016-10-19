@@ -44,8 +44,7 @@ public class LoginActivity extends AppCompatActivity {
 
     protected void onStart(){
         super.onStart();
-        eT1
-                = (EditText) findViewById(R.id.editTextLogin);
+        eT1 = (EditText) findViewById(R.id.editTextLogin);
 
         eT1.setHint(sharedPreferences.getString(defaultEmail, "email@domain.com"));
 
