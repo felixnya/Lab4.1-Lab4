@@ -16,4 +16,8 @@
     <string name="Hint1">UserName</string>
     <string name="Hint2">Password</string>
     <string name="StartChat">Start Chat</string>
+    <string name="weatherChat">Weather Chat</string>
+    <string name="min">Min</string>
+    <string name="max">Man</string>
+    <string name="current">Current</string>
 </resources>

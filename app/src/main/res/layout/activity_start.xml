@@ -32,4 +32,12 @@
         android:id="@+id/button2"
         android:layout_alignTop="@+id/textView"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="@string/weatherChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button2"
+        android:id="@+id/button5"
+        android:layout_toStartOf="@+id/textView" />
 </RelativeLayout>

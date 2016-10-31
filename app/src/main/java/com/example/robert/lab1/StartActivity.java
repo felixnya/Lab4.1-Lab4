@@ -15,6 +15,7 @@ public class StartActivity extends AppCompatActivity {
     public static final int REQUEST_CODE = 5;
     Button b1;
     Button b2;
+    Button b3;
 
     Context context = this;
     Toast toast;
@@ -43,6 +44,14 @@ public class StartActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent ffs = new Intent(getApplicationContext(),ListItemsActivity.class);
                 startActivityForResult(ffs, REQUEST_CODE);
+            }
+        });
+        b3 = (Button) findViewById(R.id.button5);
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ffs = new Intent(getApplicationContext(), WeatherForecast.class);
+                startActivity(ffs);
             }
         });
     }
