@@ -13,9 +13,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -36,6 +41,7 @@ public class WeatherForecast extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         try {
+
             foreQuery = new ForecastQuery();
             foreQuery.execute(url);
 
@@ -77,6 +83,12 @@ public class WeatherForecast extends AppCompatActivity {
                         break;
                     case "sunny":
                         filename = "sunny";
+                        break;
+                    case "overcast":
+                        filename = "overcast";
+                        break;
+                    default:
+                        filename = "clear";
                         break;
                 }
                 FileInputStream inputStream;
@@ -121,30 +133,30 @@ public class WeatherForecast extends AppCompatActivity {
                                 sb.append((parser.getAttributeValue(1)));
                             String filename;
                             FileOutputStream outputStream;
+
                             switch (parser.getAttributeValue(1)) {
                                 case "sunny":
-                                    filename = "sunny";
                                     try {
-                                        FileInputStream inputStream;
-                                        inputStream = openFileInput(filename);
-                                        if (BitmapFactory.decodeStream(inputStream) != null) {
+                                        filename = "sunny";
+                                        File file = new File(filename);
+                                        if(!file.exists()) {
                                             HttpUtils hu = new HttpUtils();
                                             outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
                                             hu.getImage("http://www.freeiconspng.com/uploads/sunny-icon-17.png")
                                                     .compress(Bitmap.CompressFormat.PNG, 100, outputStream);
                                             outputStream.close();
                                         }
-                                        inputStream.close();
+
                                     } catch (Exception e) {
+                                        Toast.makeText(getBaseContext(), "FileNotFound", Toast.LENGTH_LONG);
                                         e.printStackTrace();
                                     }
                                     break;
                                 case "broken clouds":
-                                    filename = "broken";
                                     try {
-                                        FileInputStream inputStream;
-                                        inputStream = openFileInput(filename);
-                                        if (BitmapFactory.decodeStream(inputStream) != null) {
+                                        filename = "broken";
+                                        File file = new File(filename);
+                                        if(!file.exists()) {
                                             HttpUtils hu = new HttpUtils();
                                             outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
                                             hu.getImage(
@@ -152,8 +164,41 @@ public class WeatherForecast extends AppCompatActivity {
                                                     .compress(Bitmap.CompressFormat.PNG, 100, outputStream);
                                             outputStream.close();
                                         }
-                                        inputStream.close();
                                     } catch (Exception e) {
+                                        Toast.makeText(getBaseContext(), "FileNotFound", Toast.LENGTH_LONG);
+                                        e.printStackTrace();
+                                    }
+                                case "overcast clouds":
+                                    try {
+                                        filename = "overcast";
+                                        File file = new File(filename);
+                                        if(!file.exists()) {
+                                            HttpUtils hu = new HttpUtils();
+                                            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+                                            hu.getImage(
+                                                    "http://www.clipartkid.com/images/727/today-s-weather-is-mostly-cloudy-with-a-qrV0Q1-clipart.jpg")
+                                                    .compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+                                            outputStream.close();
+                                        }
+
+                                    } catch (Exception e) {
+                                       // Toast.makeText(getBaseContext(), "FileNotFound", Toast.LENGTH_LONG);
+                                        e.printStackTrace();
+                                    }
+                                default:
+                                    try {
+                                        filename = "clear";
+                                        File file = new File(filename);
+                                        if(!file.exists()) {
+                                            HttpUtils hu = new HttpUtils();
+                                            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+                                            hu.getImage(
+                                                    "https://investmentscientist.files.wordpress.com/2011/11/clear-sky.jpg")
+                                                    .compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+                                            outputStream.close();
+                                        }
+                                    } catch(FileNotFoundException e) {
+                                        Toast.makeText(getBaseContext(), "FileNotFound", Toast.LENGTH_LONG);
                                         e.printStackTrace();
                                     }
                             }
