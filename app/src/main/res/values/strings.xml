@@ -20,4 +20,6 @@
     <string name="min">Min</string>
     <string name="max">Man</string>
     <string name="current">Current</string>
+    <string name="title_message_list">Messages</string>
+    <string name="title_message_detail">Message Detail</string>
 </resources>
