@@ -15,6 +15,8 @@ public class StartActivity extends AppCompatActivity {
     public static final int REQUEST_CODE = 5;
     Button b1;
     Button b2;
+    Button b3;
+    Button b4;
 
     Context context = this;
     Toast toast;
@@ -33,7 +35,7 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i("Start Activity", "User clicked start chat");
-               Intent ffs = new Intent(getApplicationContext(),ChatWindow.class);
+               Intent ffs = new Intent(getApplicationContext(),MessageListActivity.class);
                startActivity(ffs);
             }
         });
@@ -45,6 +47,23 @@ public class StartActivity extends AppCompatActivity {
                 startActivityForResult(ffs, REQUEST_CODE);
             }
         });
+        b3 = (Button) findViewById(R.id.button5);
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ffs = new Intent(getApplicationContext(), WeatherForecast.class);
+                startActivity(ffs);
+            }
+        });
+        b4 = (Button) findViewById(R.id.button6);
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ffs = new Intent(getApplicationContext(), TestToolbar.class);
+                startActivity(ffs);
+            }
+        });
+
     }
 
     protected void onStart(){
