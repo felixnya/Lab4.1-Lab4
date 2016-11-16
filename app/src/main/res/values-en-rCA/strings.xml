@@ -16,5 +16,5 @@
     <string name="Hint1">UserName</string>
     <string name="Password">Password</string>
     <string name="StartChat">Start Chat</string>
-
+    <string name="startMenu">Start Menu Activity</string>
     </resources>

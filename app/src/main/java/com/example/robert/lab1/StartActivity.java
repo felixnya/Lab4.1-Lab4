@@ -16,6 +16,7 @@ public class StartActivity extends AppCompatActivity {
     Button b1;
     Button b2;
     Button b3;
+    Button b4;
 
     Context context = this;
     Toast toast;
@@ -54,6 +55,15 @@ public class StartActivity extends AppCompatActivity {
                 startActivity(ffs);
             }
         });
+        b4 = (Button) findViewById(R.id.button6);
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ffs = new Intent(getApplicationContext(), TestToolbar.class);
+                startActivity(ffs);
+            }
+        });
+
     }
 
     protected void onStart(){
